@@ -1,60 +1,60 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+  <div id="app" class="container">
+    <div class="jumbotron">
+      <!-- v-bind es igual a : (forma corta) => hacemos un banding a la varaible titulo en el js -->
+      <titulo :titulo="titulo"></titulo>
+      <!-- 1er forma atraves de un event del hijo (v-on:incrementarContador) -->
+      <!-- 2 da forma le pasasmos el metodo al hijo -->
+      <nueva-tarea v-bind:tareas="tareas"
+        v-on:incrementarContador="numTareas += $event"
+        :actualizarContador="actualizarContador">
+      </nueva-tarea>
+      <lista-tareas v-bind:tareas="tareas"></lista-tareas>
+      <em>Pasar info de un Componente Hijo hacia el Componente Padre</em>
+      <p>1erForma: Emitiendo desde el hijo: {{numTareas}}</p>
+      <p>2daForma: Pasando el Metodo hacia el hijo: {{numTareas2}}</p>
+    </div>
   </div>
 </template>
 
 <script>
+import Titulo from './components/Titulo';
+import NuevaTarea from './components/NuevaTarea';
+import ListaTareas from './components/ListaTareas';
 export default {
-  name: 'app',
-  data () {
+  components: {
+    Titulo,
+    NuevaTarea,
+    ListaTareas
+  },
+  data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      titulo: 'Mi lista de tareas',
+      numTareas: 3,
+      numTareas2: 3,
+      tareas: [
+        {
+          texto: 'Aprender Vue.js',
+          terminada: false,
+          id: 1
+        },
+        {
+          texto: 'Aprender Angular 2',
+          terminada: false,
+          id: 2
+        },
+        {
+          texto: 'Aprender Ionic 2',
+          terminada: false,
+          id: 3
+        },
+      ],
     }
-  }
+  },
+  methods: {
+    actualizarContador() {
+      this.numTareas2++;
+    }
+  }  
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
-</style>
