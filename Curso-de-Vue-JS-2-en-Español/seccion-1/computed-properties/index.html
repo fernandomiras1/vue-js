@@ -6,8 +6,16 @@
 </head>
 <body>
   <div id="vm">
-     <button v-on:click="mensaje = 'ESTE ES EL NUEVO MENSAJE'">Cambiar Mensaje</button>
-     <button>Destruir instancia</button>
+     <button v-on:click="primero++">Incremetar el primero</button>
+     <button v-on:click="segundo++">Incremetar el segundo</button>
+     <button v-on:click="tercero++">Incremetar el tercero</button>
+     <button v-on:click="cuarto++">Incremetar el cuarto</button>
+
+     <p>primero: {{ primero }}</p>
+     <p>segundo: {{ segundo }}</p>
+     <p>tercero: {{ tercero }}</p>
+     <p>cuarto: {{ cuarto }}</p>
+     <p>total: {{ total }}</p>
   </div>
   <script src="vue.js"></script>
 </body>

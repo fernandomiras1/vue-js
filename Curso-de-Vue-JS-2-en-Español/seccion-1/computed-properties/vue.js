@@ -1,12 +1,19 @@
 new Vue({
   el: '#vm',
   data: {
-    mensaje: 'Este es el mensaje'
+    primero: 0,
+    segundo: 0,
+    tercero: 0,
+    cuarto: 0
   },
-  methods : {
-    destruir : function(){
-      // $: es un metodo que nosotros no creamos, que es parte de VUE
-      this.$destroy();
+
+  /**
+   * son propiedades que van a ser calculadas automaticamente si alguno de los valores cambien. 
+   * Esta siendo actualizada autoaticamente cuando alguno de los elementos depende del metodo total. cambuia. 
+   */
+  computed: {
+    total: function() {
+      return this.primero + this.segundo + this.tercero + this.cuarto;
     }
   }
   

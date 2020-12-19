@@ -6,8 +6,32 @@
 </head>
 <body>
   <div id="vm">
-     <h3>{{ mostrarMensaje() }}</h3>
-     <img v-bind:src="src" alt="">
+    <input type="text" v-model="nombre">
+    <hr>
+    <p>Hola {{ nombre}}, Bienvenido a curso de vue.js</p>
+    <h3>{{ mostrarMensaje() }}</h3>
+    <div v-html="textoHtml"></div>
+    <div v-show="mostrar">Este es el primer div (v-show)</div>
+    <template v-if="mostrar">Este es el primer div (v-if)</template>
+    <!-- v-else: Se agrega debajo del elemento con el condicional if. Si se cumple va por el IF y si no pasa por el elemento v-else.  -->
+    <div v-else>Este es el segundo div</div>
+    <img v-bind:src="src" width="100" alt="">
+    <p v-if="parrafo == 1">Parrafo 1</p>
+    <p v-else-if="parrafo == 2">Parrafo 2</p>
+    <p v-else-if="parrafo == 3">Parrafo 3</p>
+    <p v-else>Parrafo no es ni 2 ni 2 ni 3</p>
+    <ul>
+      <template v-for="(pais, index) in paises">
+        <li> {{index}} - {{pais}}</li>
+        <hr>  
+      </template>
+    </ul>
+    <h4>Recorrer un objeto con v-for</h4>
+    <ul>
+      <li v-for="(value, key) in empleado">
+        {{key}} -> {{value}}
+      </li>
+    </ul>
   </div>
   <script src="vue.js"></script>
 </body>
