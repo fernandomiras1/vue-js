@@ -10,6 +10,10 @@
     <hr>
     <p>Hola {{ nombre}}, Bienvenido a curso de vue.js</p>
     <h3>{{ mostrarMensaje() }}</h3>
+    
+    <h1>-- Directivas</h1>
+    <hr>
+
     <div v-html="textoHtml"></div>
     <div v-show="mostrar">Este es el primer div (v-show)</div>
     <template v-if="mostrar">Este es el primer div (v-if)</template>
@@ -32,6 +36,32 @@
         {{key}} -> {{value}}
       </li>
     </ul>
+
+    <h1>-- Eventos</h1>
+    <hr>
+
+    <button v-on:click="sumarUno">Sumar 1</button><br>
+    <button v-on:mouseEnter="sumarUno">Sumar 1 - Mouse Ingresa</button><br>
+    <button v-on:click="restarUno">Restar 1</button><br>
+    <button v-on:click="alerta('Esta es la Alerta')">Mostrar Alerta</button><br>
+    <p>Contador: {{contador}}</p>
+    <input type="text" placeholder="tecla delete" v-on:keyup.delete=sumar(1)>
+    <hr>
+
+    <p>x: {{x}}, y: {{y}}</p>
+    <div @mouseMove="mostrarUbicacion"
+      v-on:click="sumar(3)"
+      style="height: 200px; width: 200px; background-color: #92a8d1;">
+      <ul>
+        <li>Enveto: Mueve el mouse</li>
+        <li>Enveto: Click en el div</li>
+      </ul>
+
+      <div v-on:mouseMove.stop
+       style="height: 30px; border: 1px solid red">
+        <p>STOP evet: MouseMove</p>
+      </div>
+    </div>
   </div>
   <script src="vue.js"></script>
 </body>

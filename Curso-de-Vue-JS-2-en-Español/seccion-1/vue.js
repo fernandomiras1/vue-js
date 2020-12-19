@@ -13,12 +13,32 @@ new Vue({
       edad: '28 años',
       nacionalidad: 'ARG',
       porfesion: 'Programador'
-    }
+    },
+    // -- Eventos
+    contador: 0,
+    x: 0,
+    y: 0,
   },
  
   methods : {
     mostrarMensaje() { return this.mensaje},
-  
+    sumarUno: function() {
+      this.contador += 1;
+    },
+    restarUno: function() {
+      this.contador -= 1;
+    },
+    alerta: function(mensaje) {
+      alert(mensaje);
+    },
+    // como es un evento. Vue automaticamente nos va a enviar el objeto event.
+    mostrarUbicacion: function(event) {
+      this.x = event.clientX,
+      this.y = event.clientY
+    },
+    sumar: function(cantidad) {
+      this.contador +=cantidad;
+    }
   }
   
 }) 
