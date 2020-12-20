@@ -5,7 +5,7 @@
       {{ tarea.texto }}
       <span class="pull-right">
       <button type="button" class="btn btn-success btn-xs glyphicon glyphicon-ok"
-              v-on:click="tarea.terminada = !tarea.terminada"       
+              v-on:click="editar(tarea)"       
       ></button>
       <button type="button" class="btn btn-danger btn-xs glyphicon glyphicon-remove"
               v-on:click="borrar(indice)"       
@@ -24,8 +24,21 @@
     },
     props: ['tareas'],
     methods: {
+      editar(tarea) {
+        let terminada = tarea.terminada = !tarea.terminada;
+        // llamamos a la API para editar
+        this.$http.patch(`tareas/${tarea.id}`, {
+          terminada
+        }).then(resu => {
+          console.log('editar', resu);
+        })
+      },
       borrar(indice) {
-        this.tareas.splice(indice,1)
+        let id = this.tareas[indice].id;
+        this.tareas.splice(indice, 1);
+        this.$http.delete(`tareas/${id}`).then(resu => {
+          console.log('eliminado', resu);
+        })
       }
     }
   }

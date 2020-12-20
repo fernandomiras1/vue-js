@@ -32,29 +32,21 @@ export default {
       titulo: 'Mi lista de tareas',
       numTareas: 3,
       numTareas2: 3,
-      tareas: [
-        {
-          texto: 'Aprender Vue.js',
-          terminada: false,
-          id: 1
-        },
-        {
-          texto: 'Aprender Angular 2',
-          terminada: false,
-          id: 2
-        },
-        {
-          texto: 'Aprender Ionic 2',
-          terminada: false,
-          id: 3
-        },
-      ],
+      tareas: [],
     }
   },
   methods: {
     actualizarContador() {
       this.numTareas2++;
     }
-  }  
+  },
+  created() {
+    // llamamos a la API
+    this.$http.get('tareas')
+      .then(resu => {
+        console.log('resu', resu);
+        this.tareas = resu.body;
+      })
+  }
 }
 </script>

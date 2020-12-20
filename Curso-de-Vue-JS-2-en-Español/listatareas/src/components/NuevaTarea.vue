@@ -37,6 +37,14 @@
           // 3er Forma: Atraves de un Servico Singleton. Emitimos en un Singleton.
           // bus.$emit('actualizarContador', this.tareas.length)
           bus.actualizarContador(this.tareas.length);
+
+          // Guardamos en la Base de Datos.
+          this.$http.post('tareas', {
+            texto: texto,
+            terminada: false
+          }).then(resupueta => {
+            console.log('resp', resupueta);
+          });
         }
         this.nuevaTarea = '';
       },

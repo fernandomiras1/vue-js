@@ -1,0 +1,24 @@
+{
+  "tareas": [
+    {
+      "id": 1,
+      "texto": "Jugo de Zanahoria",
+      "terminada": false
+    },
+    {
+      "texto": "fer2",
+      "terminada": true,
+      "id": 3
+    },
+    {
+      "texto": "Fer",
+      "terminada": false,
+      "id": 4
+    },
+    {
+      "texto": "Fer234",
+      "terminada": false,
+      "id": 5
+    }
+  ]
+}
