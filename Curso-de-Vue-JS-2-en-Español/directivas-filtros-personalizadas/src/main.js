@@ -26,6 +26,11 @@ Vue.directive('decorar', {
   }
 })
 
+// Filtros Globales
+Vue.filter('suspensivos', (texto) => {
+  return texto.substring(0,10) + ' ...';
+})
+
 new Vue({
   el: '#app',
   render: h => h(App)

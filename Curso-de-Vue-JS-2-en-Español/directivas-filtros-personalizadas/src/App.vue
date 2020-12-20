@@ -10,6 +10,14 @@
       <span v-decorar-local:pequeno.italico.negrilla="{familia: 'helvetica', color: 'green'}">
         Aprende Anuglar
       </span>
+
+      <hr>
+      <h3>--Filtros Personalizados --</h3>
+      <span><strong>Fitro Componente:</strong> {{mensaje | mayusculas}}</span>
+      <hr>
+      <span><strong>Fitro Global:</strong> {{mensaje | suspensivos}}</span>
+      <hr>
+      <samp>{{temperatura | aFahrenheith}}</samp>
     </div>
   </div>
 </template>
@@ -38,6 +46,20 @@
             el.style.fontStyle = 'italic';
           }
         }
+      }
+    },
+    filters: {
+      mayusculas(mensaje) {
+        return mensaje.toUpperCase();
+      },
+      aFahrenheith(temperatura) {
+        return (9/5 * temperatura) + 32 + ' F';
+      }
+    },
+    data() {
+      return {
+        mensaje: 'Se le aplica filtro Mayuscula',
+        temperatura: 30
       }
     }
   }
