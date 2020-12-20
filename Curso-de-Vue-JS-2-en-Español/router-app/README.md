@@ -16,3 +16,14 @@ npm run build
 ```
 
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+
+////////////// FER
+
+Router. 
+
+npm install vue-router --save
+http: npm install vue-resource --save
+
+llamado api 
+https://jsonplaceholder.typicode.com/users
