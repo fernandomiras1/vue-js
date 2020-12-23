@@ -1,0 +1,3 @@
+nuevo cli 
+
+npm install -g @vue/cli
