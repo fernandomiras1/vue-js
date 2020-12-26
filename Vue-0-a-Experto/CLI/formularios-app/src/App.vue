@@ -6,11 +6,19 @@
 </template>
 
 <script>
-  import Navbar from './components/Navbar'
-  export default {
-    components: {
-      Navbar
-    }
+import { mapActions } from 'vuex'
+import Navbar from './components/Navbar'
+export default {
+  components: {
+    Navbar
+  },
+  methods: {
+    ...mapActions(['cargarLocalStorage'])
+  },
+  created() {
+    // Cuando se carge nuestra aplicacion.
+    this.cargarLocalStorage();
   }
+}
 </script>
 
