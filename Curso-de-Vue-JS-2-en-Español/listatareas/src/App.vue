@@ -36,7 +36,8 @@ export default {
     }
   },
   methods: {
-    actualizarContador() {
+    actualizarContador(data) {
+      console.log('actualizarContador', data);
       this.numTareas2++;
     }
   },

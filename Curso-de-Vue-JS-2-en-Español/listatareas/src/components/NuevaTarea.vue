@@ -33,7 +33,7 @@
           //1er Forma: emitimos eventos ( para que lo reciba el padre. )
           this.$emit('incrementarContador', 1);
           // 2da Forma: llamamos a la Fn del Padre y actualizamos el contador.
-          this.actualizarContador();
+          this.actualizarContador('hola');
           // 3er Forma: Atraves de un Servico Singleton. Emitimos en un Singleton.
           // bus.$emit('actualizarContador', this.tareas.length)
           bus.actualizarContador(this.tareas.length);
